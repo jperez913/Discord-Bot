@@ -17,11 +17,18 @@ async def on_message(message):
 
     if (message.content.lower().startswith('owo') or message.content.lower().startswith('uwu')):
         msg = 'Hewwo {0.author.mention}'.format(message) + " senpai, you're vewy kawaii-desu."
-        await client.send_message(message.channel, msg)
+        await client.send_message(message.channel, msg) #this is cursed, blame the weeb dev
 
     if "I'm" in message.content:
         msg = "Hi " + message.content[message.content.find("I'm")+4:] + ", I'm pepegaBot!"
         await client.send_message(message.channel, msg)
+
+    if message.content.startswith('!degenerate'):
+        msg = message.content[12:]
+        msg = msg.replace('r','w')
+        msg = msg.replace('ove','uv')
+        msg = msg.replace('l','w')
+        await client.send_message(message.channel, msg)        
 
 @client.event
 async def on_ready():
