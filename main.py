@@ -15,6 +15,14 @@ async def on_message(message):
         msg = 'Hello {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
 
+    if (message.content.startswith('OwO') or message.content.startswith('UwU')):
+        msg = "What's this?"
+        await client.send_message(message.channel, msg)
+
+    if "I'm" in message.content:
+        msg = "Hi " + message.content[message.content.find("I'm")+4:] + ", I'm pepegaBot!"
+        await client.send_message(message.channel, msg)
+
 @client.event
 async def on_ready():
     print('Logged in as')
