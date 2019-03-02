@@ -31,7 +31,7 @@ async def on_message(message):
             msg = msg + name + '\n'
         await client.send_message(message.channel, msg)
 
-    if message.content.startswith('!lp'):
+    if message.content.startswith('!roles'):
         members = message.server.members
         msg = ''
         for member in members:   
