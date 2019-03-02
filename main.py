@@ -23,6 +23,14 @@ async def on_message(message):
         msg = "Hi " + message.content[message.content.find("I'm")+4:] + ", I'm pepegaBot!"
         await client.send_message(message.channel, msg)
 
+    if message.content.startswith('!members'):
+        msg = '__All current members are:__ \n \n'
+        x = message.server.members
+        for member in x:
+            name = member.name
+            msg = msg + name + '\n'
+        await client.send_message(message.channel, msg)
+
 @client.event
 async def on_ready():
     print('Logged in as')
