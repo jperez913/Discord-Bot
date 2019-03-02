@@ -31,6 +31,13 @@ async def on_message(message):
             msg = msg + name + '\n'
         await client.send_message(message.channel, msg)
 
+    if message.content.startswith('!lp'):
+        members = message.server.members
+        msg = ''
+        for member in members:   
+            msg = msg + '**' + member.name + '**' + '\'s highest role is ' + member.top_role.name + '\n \n'
+        await client.send_message(message.channel, msg)
+
 @client.event
 async def on_ready():
     print('Logged in as')
