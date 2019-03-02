@@ -15,8 +15,8 @@ async def on_message(message):
         msg = 'Hello {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
 
-    if (message.content.startswith('OwO') or message.content.startswith('UwU')):
-        msg = "What's this?"
+    if (message.content.lower().startswith('owo') or message.content.lower().startswith('uwu')):
+        msg = 'Hewwo {0.author.mention}'.format(message) + " senpai, you're vewy kawaii-desu."
         await client.send_message(message.channel, msg)
 
     if "I'm" in message.content:
@@ -29,5 +29,6 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
+
 
 client.run(TOKEN)
