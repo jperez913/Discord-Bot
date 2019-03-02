@@ -38,6 +38,17 @@ async def on_message(message):
             msg = msg + '**' + member.name + '**' + '\'s highest role is ' + member.top_role.name + '\n \n'
         await client.send_message(message.channel, msg)
 
+    if message.content.startswith('!oldman'):
+        members = message.server.members
+        oldMan = ''
+        oldest = list(members)[0].joined_at
+        for member in members:
+            if member.joined_at < oldest:
+                oldest = member.joined_at
+                oldMan = member.name
+        msg = oldMan+ ' is the old man of the chat! He joined ' + oldest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        await client.send_message(message.channel, msg)
+
 @client.event
 async def on_ready():
     print('Logged in as')
