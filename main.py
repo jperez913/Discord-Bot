@@ -78,8 +78,13 @@ async def on_message(message):
         msg = msg.replace('r','w')
         msg = msg.replace('ove','uv')
         msg = msg.replace('l','w')
-        await client.send_message(message.channel, msg)        
-        
+        await client.send_message(message.channel, msg)
+
+    if message.content.startswith('!cleanse'):
+        num = int(message.content[9:])
+        async for x in client.logs_from(message.channel, limit = num+1):
+            await client.delete_message(x)
+
 @client.event
 async def on_ready():
     print('Logged in as')
