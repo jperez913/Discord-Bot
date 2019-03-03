@@ -71,7 +71,13 @@ async def on_message(message):
         msg = msg.replace('r','w')
         msg = msg.replace('ove','uv')
         msg = msg.replace('l','w')
-        await client.send_message(message.channel, msg)        
+        await client.send_message(message.channel, msg)
+
+    if message.content.startswith('!comp'):
+        compFile = open("comp.txt", "r")
+        compliment = [comp for comp in compFile]
+        msg = compliment[random.randint(0,len(compliment)-1)]
+        await client.send_message(message.channel, msg)
         
 @client.event
 async def on_ready():
