@@ -39,7 +39,7 @@ async def on_message(message):
             msg = msg + '**' + member.name + '**' + '\'s highest role is ' + member.top_role.name + '\n \n'
         await client.send_message(message.channel, msg)
 
-    if message.content.startswith('!oldman'):
+    if message.content.startswith('!eldest'):
         members = message.server.members
         oldMan = ''
         oldest = list(members)[0].joined_at
@@ -47,7 +47,7 @@ async def on_message(message):
             if member.joined_at < oldest:
                 oldest = member.joined_at
                 oldMan = member.name
-        msg = oldMan + ' is the old man of the chat! He joined ' + oldest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        msg = oldMan + ' is the oldie of the chat! Respect your elders! He joined ' + oldest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
         await client.send_message(message.channel, msg)
 
     if message.content.startswith('!baby'):
@@ -58,7 +58,7 @@ async def on_message(message):
             if member.joined_at > youngest:
                 youngest = member.joined_at
                 baby = member.name
-        msg = baby + ' is the baby boy of the chat! He joined ' + youngest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        msg = baby + ' is the baby of the chat! He joined ' + youngest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
         await client.send_message(message.channel, msg)
 
     if message.content.startswith('?random'):
