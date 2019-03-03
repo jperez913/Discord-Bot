@@ -1,5 +1,6 @@
 # Work with Python 3.6
 import discord
+import random
 
 TOKEN = 'NTUxNDM1ODE5NjQ3MjM4MTkw.D1xCTQ.jYtsxz0_Qyr69gD7Zx8FqObc0hY'
 
@@ -46,7 +47,23 @@ async def on_message(message):
             if member.joined_at < oldest:
                 oldest = member.joined_at
                 oldMan = member.name
-        msg = oldMan+ ' is the old man of the chat! He joined ' + oldest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        msg = oldMan + ' is the old man of the chat! He joined ' + oldest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        await client.send_message(message.channel, msg)
+
+    if message.content.startswith('!baby'):
+        members = message.server.members
+        baby = ''
+        youngest = list(members)[0].joined_at
+        for member in members:
+            if member.joined_at > youngest:
+                youngest = member.joined_at
+                baby = member.name
+        msg = baby + ' is the baby boy of the chat! He joined ' + youngest.strftime("%A, %B %d %Y @ %H:%M:%S %p")
+        await client.send_message(message.channel, msg)
+
+    if message.content.startswith('?random'):
+        limit = message.content[message.content.find("?random")+8:]
+        msg = random.randint(1,int(limit))
         await client.send_message(message.channel, msg)
 
 @client.event
