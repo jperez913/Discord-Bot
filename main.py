@@ -86,8 +86,6 @@ async def on_message(message):
         msg = compliment[random.randint(0,len(compliment)-1)]
         await client.send_message(message.channel, msg)
         
-        await client.send_message(message.channel, msg)
-
     if message.content.startswith('!cleanse'):
         num = int(message.content[9:])
         async for x in client.logs_from(message.channel, limit = num+1):
