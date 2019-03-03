@@ -20,7 +20,7 @@ async def on_message(message):
         await client.send_message(message.channel, msg) #this is cursed, blame the weeb dev
 
     if "I'm" in message.content:
-        msg = "Hi " + message.content[message.content.find("I'm")+4:] + ", I'm pepegaBot!"
+        msg = "Hi " + message.content[message.content.find("I'm")+4:] + ", I'm LudiBot!"
         await client.send_message(message.channel, msg)
 
     if message.content.startswith('!degenerate'):
@@ -28,7 +28,7 @@ async def on_message(message):
         msg = msg.replace('r','w')
         msg = msg.replace('ove','uv')
         msg = msg.replace('l','w')
-        await client.send_message(message.channel, msg)        
+        await client.send_message(message.channel, msg)
 
     if message.content.startswith('!members'):
         msg = '__All current members are:__ \n \n'
@@ -41,7 +41,7 @@ async def on_message(message):
     if message.content.startswith('!roles'):
         members = message.server.members
         msg = ''
-        for member in members:   
+        for member in members:
             msg = msg + '**' + member.name + '**' + '\'s highest role is ' + member.top_role.name + '\n \n'
         await client.send_message(message.channel, msg)
 
